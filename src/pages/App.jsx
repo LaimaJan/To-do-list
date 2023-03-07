@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-	const [tasks, setTasks] = useState('');
+	const [tasks, setTasks] = useState([]);
 	const [value, setValue] = useState('');
 
 	const handleSubmit = (e) => {
@@ -19,6 +19,21 @@ function App() {
 		setTasks(newTasks);
 
 		console.log(tasks);
+	};
+
+	const completeTask = (index) => {
+		const newTasks = [...tasks];
+		console.log(newTasks);
+
+		console.log('indexas: ', index);
+		newTasks[index].completed = true;
+		setTasks(newTasks);
+	};
+
+	const removeTask = (index) => {
+		const newTasks = [...tasks];
+		newTasks.splice(index, 1);
+		setTasks(newTasks);
 	};
 
 	return (
@@ -42,11 +57,26 @@ function App() {
 				<div className="to-do-list-content">
 					<h1 className="title">To do list</h1>
 					<div className="to-do-list">
-						<ul>
-							{tasks.map((task, index) => (
-								<li key={index}>{task.title}</li>
-							))}
-						</ul>
+						{tasks.map((task, index) => (
+							<div
+								className="task"
+								key={index}
+								style={{
+									textDecoration: task.completed ? 'line-through' : '',
+								}}
+							>
+								{task.title}
+								<div className="button-container">
+									<button onClick={() => completeTask(index)}>Complete</button>
+									<button
+										style={{ background: 'red' }}
+										onClick={() => removeTask(index)}
+									>
+										X
+									</button>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

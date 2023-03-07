@@ -45,19 +45,6 @@
 	font-size: 18px;
 }
 
-.add-btn {
-	border: none;
-	border-radius: var(--default-radius);
-	background-color: #afaba9;
-	font-weight: 500;
-	padding: 0 15px;
-	border: 1px solid #9c9896;
-}
-
-.add-btn:hover {
-	background-color: #b9b5b0;
-}
-
 .to-do-list-content {
 	width: 100%;
 	margin-top: 20px;
@@ -68,12 +55,20 @@
 
 .to-do-list {
 	width: 15%;
-
 	text-align: left;
 }
 
-.to-do-list > * {
-	margin-left: 10px;
-	margin-top: 5px;
+.task {
+	margin-top: 10px;
 	font-size: 23px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
 }
