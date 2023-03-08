@@ -17,15 +17,11 @@ function App() {
 	const addTask = (title) => {
 		const newTasks = [...tasks, { title, completed: false }];
 		setTasks(newTasks);
-
-		console.log(tasks);
 	};
 
 	const completeTask = (index) => {
 		const newTasks = [...tasks];
-		console.log(newTasks);
 
-		console.log('indexas: ', index);
 		newTasks[index].completed = true;
 		setTasks(newTasks);
 	};
